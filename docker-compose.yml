@@ -1,0 +1,23 @@
+# Starts MongoDB and Redis for local development:
+#   docker compose up -d
+# Stop them:
+#   docker compose down        (data is kept in volumes)
+services:
+  mongo:
+    image: mongo:7
+    container_name: snip-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: snip-redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+volumes:
+  mongo_data:

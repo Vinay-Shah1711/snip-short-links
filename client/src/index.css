@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  background: #0b0f14;
+  color: #e8edf2;
+}
+
+body {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  background-image: radial-gradient(900px 400px at 85% -10%, rgba(198, 255, 61, 0.07), transparent 60%);
+  background-attachment: fixed;
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-ink-700 bg-ink-900;
+  }
+  .input {
+    @apply w-full rounded-xl border border-ink-600 bg-ink-950 px-3.5 py-2.5 text-sm text-white placeholder-slate-500 outline-none transition focus:border-acid;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-acid px-4 py-2.5 text-sm font-bold text-ink-950 transition hover:bg-acid-dark disabled:opacity-50;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-ink-600 px-3 py-2 text-sm font-medium text-slate-300 transition hover:border-slate-400 hover:text-white;
+  }
+  .label {
+    @apply mb-1 block text-xs font-medium uppercase tracking-wider text-slate-400;
+  }
+}
+
+@keyframes slidein {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.slidein {
+  animation: slidein 0.35s ease-out;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(198, 255, 61, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(198, 255, 61, 0);
+  }
+}
+.pulse-dot {
+  animation: pulse-dot 1.8s infinite;
+}
